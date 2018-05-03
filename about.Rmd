@@ -1,0 +1,8 @@
+---
+title: "Conclusion"
+---
+
+According to my analysis of results, the location parameters of the distribution of happiness score are the same in each year (year 2015, year 2016, year 2017). Therefore, people are not happier from year 2015 to year 2017. Instead, they have the same level of happiness in each year. Happiness doesn't increase as time passes. My main hypothesis that people are happier from year 2015 to year 2017 is rejected. However, all my four additional hypothese are proved based on the correlation tests I ran in R-studio. Therefore, I have proved that there is a significant positive association between happiness and economy, a significant positive association between happiness and quality of family life, a significant positive association between happiness and health status, and a significant positive association between happiness and freedom status. Eventually, more works need to be done in the future in order to study why people maintain the sample level of happiness in each year. One possible explanation might be: because one year is a very short time period while economy and technology don't change a lot in one year, it will not fulfill more people's physiological needs around the world. It is possible to find that there is no significant difference between the happiness of the year and the happiness of the following year.
+
+Thank you for viewing my project! I hope you have a great summer!
+

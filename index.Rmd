@@ -1,0 +1,19 @@
+---
+title: "Introduction of my project"
+---
+
+Hello, Welcome to my project website!
+
+I first found my datasource from Kaggle.com. This data source was originally from the World Happiness Report 2017, which ranks 155 countries by their happiness levels. This report was released at the United Nations on March 20th in the year 2017. The data was originally collected from year 2013 to 2016 globally. In addition, they were selected from nationally representative samples for the years 2013-2016 based on the Gallup World Poll. The poll asked the main life evaluation questions, which is known as the Cantril Ladder. The Cantril Ladder questions asked respondents to value their lives today on a 0 to 10 scale, with the worst possible life as a 0 and the best possible life as a 10. Then their answers were converted to estimates representative by using the Gallup weights. The units of analysis are countries. In total, this report tried to examine the happiness level among different countries and rank the countries based on their happiness level. I want to evaluate if people in this world are happier or unhappier from the year 2015 to year 2017. 
+
+Maslow's hierarchy of needs is a famous motivational theory to study for human's satisfaction of life. It is often depicted as hierarchical levels within a pyramid. The first level of the model is physiological needs; the second level is safety needs; the third level is belongingness and love needs; the fourth level is esteem needs; and the fifth level is self-actualization. The psychologists believe that Maslow's hierarchy model figures out what needs to be accomplished to be happy. Happiness doesn't just come from material wealth or external recognition. Instead, happiness is related to a sense of fulfillment, staying active, feeling of safety and relationships. Fulfilling each level of Maslow's pyramid will lead to fulfillment and ultimately happiness. In these days, the global economy and technology are both expanding.Thus, more and more people's physiological needs such as food, water, warmth and rest are fulfilled due to the improved economy and technology. Our agricultural technology can produce more food and feed more people today than in the past. Thus, it is reasonable to believe that people in these days are happier than in the past. Conclusively, my main hypothesis is that people are happier from year 2015 to year 2017. 
+
+In addition, happiness is also related to many factors such as economic status, family status, health status and freedom status. Thus, my additional hypothesis 2 will be that there is an association between happiness and economy. Hypothesis 3 will be that there is an association between happiness and quality of family life. Hypothesis 4 will be that there is an association between happiness and health status. And hypothesis 5 will be that there is an association between happiness and freedom status. 
+
+References:
+
+1. Helliwell, J., Layard, R., & Sachs, J. (2017). World Happiness Report 2017, New York: Sustainable Development     Solutions Network.
+
+2. http://www.thehappiestmanintheworld.com/happiness-cycle-fulfillment-needs/
+
+3. https://www.simplypsychology.org/maslow.html

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Data and Methods</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">BDS 522 Project</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Introduction</a>
+</li>
+<li>
+  <a href="data.html">Data and Methods</a>
+</li>
+<li>
+  <a href="analysis.html">Analysis</a>
+</li>
+<li>
+  <a href="about.html">Conclusion</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Data and Methods</h1>
+
+</div>
+
+
+<p>I am going to select variables “happiness score”, “economy”, “family”, “health”, and “freedom” to analyze my hypotheses. Happiness score is a score given to a country based on adding up the rankings that a population has given to each category in the report. Economy is GDP per capita of the country. Family represents the quality of family life. And health is the healthcare availability and average life expectancy in the country. Lastly, freedom represents how much an individual is able to conduct herself based on her free will. Now, I use R-studio to calculate the standard deviations and means of my variables and draw the histograms of them:</p>
+<pre class="r"><code>setwd(&quot;~/Downloads/Website_template&quot;)
+year15&lt;-read.csv(&quot;2015.csv&quot;)
+year16&lt;-read.csv(&quot;2016.csv&quot;)
+year17&lt;-read.csv(&quot;2017.csv&quot;)
+
+sd(year15$Happiness.Score)</code></pre>
+<pre><code>## [1] 1.14501</code></pre>
+<pre class="r"><code>mean(year15$Happiness.Score)</code></pre>
+<pre><code>## [1] 5.375734</code></pre>
+<pre class="r"><code>hist(year15$Happiness.Score,main=&quot;Histogram of Happiness Score of the country in 2015&quot;)</code></pre>
+<p><img src="data_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>sd(year15$Economy..GDP.per.Capita.)</code></pre>
+<pre><code>## [1] 0.4031208</code></pre>
+<pre class="r"><code>mean(year15$Economy..GDP.per.Capita.)</code></pre>
+<pre><code>## [1] 0.8461372</code></pre>
+<pre class="r"><code>hist(year15$Economy..GDP.per.Capita.,main=&quot;Histogram of GDP per capita of the country in 2015&quot;)</code></pre>
+<p><img src="data_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+<pre class="r"><code>sd(year15$Family)</code></pre>
+<pre><code>## [1] 0.2723691</code></pre>
+<pre class="r"><code>mean(year15$Family)</code></pre>
+<pre><code>## [1] 0.9910459</code></pre>
+<pre class="r"><code>hist(year15$Family,main=&quot;Histogram of the quality of family life of the country in 2015&quot;)</code></pre>
+<p><img src="data_files/figure-html/unnamed-chunk-1-3.png" width="672" /></p>
+<pre class="r"><code>sd(year15$Health..Life.Expectancy.)</code></pre>
+<pre><code>## [1] 0.2470778</code></pre>
+<pre class="r"><code>mean(year15$Health..Life.Expectancy.)</code></pre>
+<pre><code>## [1] 0.6302594</code></pre>
+<pre class="r"><code>hist(year15$Health..Life.Expectancy.,main=&quot;Histogram of health status of the country in 2015&quot;)</code></pre>
+<p><img src="data_files/figure-html/unnamed-chunk-1-4.png" width="672" /></p>
+<pre class="r"><code>sd(year15$Freedom)</code></pre>
+<pre><code>## [1] 0.1506928</code></pre>
+<pre class="r"><code>mean(year15$Freedom)</code></pre>
+<pre><code>## [1] 0.4286149</code></pre>
+<pre class="r"><code>hist(year15$Freedom,main=&quot;Histogram of free will level of the country in 2015&quot;)</code></pre>
+<p><img src="data_files/figure-html/unnamed-chunk-1-5.png" width="672" /></p>
+<pre class="r"><code>sd(year16$Happiness.Score)</code></pre>
+<pre><code>## [1] 1.141674</code></pre>
+<pre class="r"><code>mean(year16$Happiness.Score)</code></pre>
+<pre><code>## [1] 5.382185</code></pre>
+<pre class="r"><code>hist(year16$Happiness.Score,main=&quot;Histogram of Happiness Score of the country in 2016&quot;)</code></pre>
+<p><img src="data_files/figure-html/unnamed-chunk-1-6.png" width="672" /></p>
+<pre class="r"><code>sd(year16$Economy..GDP.per.Capita.)</code></pre>
+<pre><code>## [1] 0.4125954</code></pre>
+<pre class="r"><code>mean(year16$Economy..GDP.per.Capita.)</code></pre>
+<pre><code>## [1] 0.9538798</code></pre>
+<pre class="r"><code>hist(year16$Economy..GDP.per.Capita.,main=&quot;Histogram of GDP per capita of the country in 2016&quot;)</code></pre>
+<p><img src="data_files/figure-html/unnamed-chunk-1-7.png" width="672" /></p>
+<pre class="r"><code>sd(year16$Family)</code></pre>
+<pre><code>## [1] 0.2667057</code></pre>
+<pre class="r"><code>mean(year16$Family)</code></pre>
+<pre><code>## [1] 0.7936211</code></pre>
+<pre class="r"><code>hist(year16$Family,main=&quot;Histogram of the quality of family life of the country in 2016&quot;)</code></pre>
+<p><img src="data_files/figure-html/unnamed-chunk-1-8.png" width="672" /></p>
+<pre class="r"><code>sd(year16$Health..Life.Expectancy.)</code></pre>
+<pre><code>## [1] 0.2293492</code></pre>
+<pre class="r"><code>mean(year16$Health..Life.Expectancy.)</code></pre>
+<pre><code>## [1] 0.557619</code></pre>
+<pre class="r"><code>hist(year16$Health..Life.Expectancy.,main=&quot;Histogram of health status of the country in 2016&quot;)</code></pre>
+<p><img src="data_files/figure-html/unnamed-chunk-1-9.png" width="672" /></p>
+<pre class="r"><code>sd(year16$Freedom)</code></pre>
+<pre><code>## [1] 0.1455068</code></pre>
+<pre class="r"><code>mean(year16$Freedom)</code></pre>
+<pre><code>## [1] 0.3709939</code></pre>
+<pre class="r"><code>hist(year16$Freedom,main=&quot;Histogram of free will level of the country in 2016&quot;)</code></pre>
+<p><img src="data_files/figure-html/unnamed-chunk-1-10.png" width="672" /></p>
+<pre class="r"><code>sd(year17$Happiness.Score)</code></pre>
+<pre><code>## [1] 1.13123</code></pre>
+<pre class="r"><code>mean(year17$Happiness.Score)</code></pre>
+<pre><code>## [1] 5.354019</code></pre>
+<pre class="r"><code>hist(year17$Happiness.Score,main=&quot;Histogram of Happiness Score of the country in 2017&quot;)</code></pre>
+<p><img src="data_files/figure-html/unnamed-chunk-1-11.png" width="672" /></p>
+<pre class="r"><code>sd(year17$Economy..GDP.per.Capita.)</code></pre>
+<pre><code>## [1] 0.4207927</code></pre>
+<pre class="r"><code>mean(year17$Economy..GDP.per.Capita.)</code></pre>
+<pre><code>## [1] 0.9847182</code></pre>
+<pre class="r"><code>hist(year17$Economy..GDP.per.Capita.,main=&quot;Histogram of GDP per capita of the country in 2017&quot;)</code></pre>
+<p><img src="data_files/figure-html/unnamed-chunk-1-12.png" width="672" /></p>
+<pre class="r"><code>sd(year17$Family)</code></pre>
+<pre><code>## [1] 0.2872629</code></pre>
+<pre class="r"><code>mean(year17$Family)</code></pre>
+<pre><code>## [1] 1.188898</code></pre>
+<pre class="r"><code>hist(year17$Family,main=&quot;Histogram of the quality of family life of the country in 2017&quot;)</code></pre>
+<p><img src="data_files/figure-html/unnamed-chunk-1-13.png" width="672" /></p>
+<pre class="r"><code>sd(year17$Health..Life.Expectancy.)</code></pre>
+<pre><code>## [1] 0.2370727</code></pre>
+<pre class="r"><code>mean(year17$Health..Life.Expectancy.)</code></pre>
+<pre><code>## [1] 0.5513408</code></pre>
+<pre class="r"><code>hist(year17$Health..Life.Expectancy.,main=&quot;Histogram of health status of the country in 2017&quot;)</code></pre>
+<p><img src="data_files/figure-html/unnamed-chunk-1-14.png" width="672" /></p>
+<pre class="r"><code>sd(year17$Freedom)</code></pre>
+<pre><code>## [1] 0.1499973</code></pre>
+<pre class="r"><code>mean(year17$Freedom)</code></pre>
+<pre><code>## [1] 0.408786</code></pre>
+<pre class="r"><code>hist(year17$Freedom,main=&quot;Histogram of free will level of the country in 2017&quot;)</code></pre>
+<p><img src="data_files/figure-html/unnamed-chunk-1-15.png" width="672" /></p>
+<p>Because my main hypothesis is that people are happier from year 2015 to year 2017. I am going to test equality of these three years’ happiness scores first. Thus, I will use Kruskal-Wallis test to examine the equality of these three years’ happiness scores. The Kruskal-Wallis H test is a rank-based nonparametric test that can be used to determine if there are statistically significant differences between two or more groups.</p>
+<p>In addition, happiness also is related to many factors such as economic status, family status, health status and freedom status. Thus, my hypothesis 2 will be that there is an association between happiness and economy. Hypothesis 3 will be that there is an association between happiness and quality of family life. Hypothesis 4 will be that there is an association between happiness and health status. And hypothesis 5 will be that there is an association between happiness and freedom status. I will run the test for association/correlation between paired samples for all of these four hypotheses. Correlation test is used to evaluate the association between two or more variables.</p>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Analysis</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">BDS 522 Project</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Introduction</a>
+</li>
+<li>
+  <a href="data.html">Data and Methods</a>
+</li>
+<li>
+  <a href="analysis.html">Analysis</a>
+</li>
+<li>
+  <a href="about.html">Conclusion</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Analysis</h1>
+
+</div>
+
+
+<pre class="r"><code>setwd(&quot;~/Downloads/Website_template&quot;)
+year15&lt;-read.csv(&quot;2015.csv&quot;)
+year16&lt;-read.csv(&quot;2016.csv&quot;)
+year17&lt;-read.csv(&quot;2017.csv&quot;)
+
+kruskal.test(list(year15$Happiness.Score,year16$Happiness.Score,year17$Happiness.Score))</code></pre>
+<pre><code>## 
+##  Kruskal-Wallis rank sum test
+## 
+## data:  list(year15$Happiness.Score, year16$Happiness.Score, year17$Happiness.Score)
+## Kruskal-Wallis chi-squared = 0.020803, df = 2, p-value = 0.9897</code></pre>
+<p>A Kruskal-Wallis rank sum tests the null hypothesis that the location parameters of the distribution of x are the same in each group. The alternative hypothesis is that they differ in at least one.</p>
+<p>For a significance level of 0.05, when P-value ≤ 0.05, we reject the null hypothesis. When P-value &gt; 0.05, we cannot reject the null hypothesis. P-value is equal to 0.9897 here, indicating that we cannot reject the null hypothesis. Thus, the location parameters of the distribution of happiness score are the same in each year (year 2015, year 2016, year 2017). People are not happier from year 2015 to year 2017. Instead, they have the same level of happiness in each year.</p>
+<pre class="r"><code>cor.test(year15$Economy..GDP.per.Capita.,year15$Happiness.Score)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  year15$Economy..GDP.per.Capita. and year15$Happiness.Score
+## t = 15.617, df = 156, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.7115976 0.8352547
+## sample estimates:
+##       cor 
+## 0.7809655</code></pre>
+<pre class="r"><code>cor.test(year15$Family,year15$Happiness.Score)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  year15$Family and year15$Happiness.Score
+## t = 13.766, df = 156, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.6608890 0.8037959
+## sample estimates:
+##       cor 
+## 0.7406052</code></pre>
+<pre class="r"><code>cor.test(year15$Health..Life.Expectancy.,year15$Happiness.Score)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  year15$Health..Life.Expectancy. and year15$Happiness.Score
+## t = 13.117, df = 156, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.6404830 0.7909067
+## sample estimates:
+##       cor 
+## 0.7241996</code></pre>
+<pre class="r"><code>cor.test(year15$Freedom,year15$Happiness.Score)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  year15$Freedom and year15$Happiness.Score
+## t = 8.6245, df = 156, p-value = 6.876e-15
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.4521891 0.6653233
+## sample estimates:
+##       cor 
+## 0.5682109</code></pre>
+<p>In year 2015, we can find that there is a significant positive associstion betweeen happiness score and economic status, a significant positive associstion betweeen happiness score and quality of family life, a significant positive associstion betweeen happiness score and health status, a significant positive associstion betweeen happiness score and freedom status because all p-values based on correlation tests above are less than 0.05 for 0.05 significant level.</p>
+<pre class="r"><code>cor.test(year16$Economy..GDP.per.Capita.,year16$Happiness.Score)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  year16$Economy..GDP.per.Capita. and year16$Happiness.Score
+## t = 16.059, df = 155, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.7232138 0.8426452
+## sample estimates:
+##      cor 
+## 0.790322</code></pre>
+<pre class="r"><code>cor.test(year16$Family,year16$Happiness.Score)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  year16$Family and year16$Happiness.Score
+## t = 13.667, df = 155, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.6589122 0.8029161
+## sample estimates:
+##       cor 
+## 0.7392516</code></pre>
+<pre class="r"><code>cor.test(year16$Health..Life.Expectancy.,year16$Happiness.Score)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  year16$Health..Life.Expectancy. and year16$Happiness.Score
+## t = 14.806, df = 155, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.6916693 0.8233164
+## sample estimates:
+##       cor 
+## 0.7653843</code></pre>
+<pre class="r"><code>cor.test(year16$Freedom,year16$Happiness.Score)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  year16$Freedom and year16$Happiness.Score
+## t = 8.5659, df = 155, p-value = 1.005e-14
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.4501564 0.6644688
+## sample estimates:
+##       cor 
+## 0.5668267</code></pre>
+<p>In year 2016, we can find the same results as in year 2015. We can find that there is a significant positive associstion betweeen happiness score and economic status, a significant positive associstion betweeen happiness score and quality of family life, a significant positive associstion betweeen happiness score and health status, a significant positive associstion betweeen happiness score and freedom status because all p-values based on correlation tests above are less than 0.05 for 0.05 significant level in year 2016.</p>
+<pre class="r"><code>cor.test(year17$Economy..GDP.per.Capita.,year17$Happiness.Score)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  year17$Economy..GDP.per.Capita. and year17$Happiness.Score
+## t = 17.238, df = 153, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.7510135 0.8599685
+## sample estimates:
+##       cor 
+## 0.8124688</code></pre>
+<pre class="r"><code>cor.test(year17$Family,year17$Happiness.Score)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  year17$Family and year17$Happiness.Score
+## t = 14.143, df = 153, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.6752145 0.8138118
+## sample estimates:
+##       cor 
+## 0.7527367</code></pre>
+<pre class="r"><code>cor.test(year17$Health..Life.Expectancy.,year17$Happiness.Score)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  year17$Health..Life.Expectancy. and year17$Happiness.Score
+## t = 15.517, df = 153, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.7120831 0.8364830
+## sample estimates:
+##       cor 
+## 0.7819506</code></pre>
+<pre class="r"><code>cor.test(year17$Freedom,year17$Happiness.Score)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  year17$Freedom and year17$Happiness.Score
+## t = 8.584, df = 153, p-value = 9.688e-15
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.4532254 0.6677659
+## sample estimates:
+##       cor 
+## 0.5701372</code></pre>
+<p>In year 2017, we also can find the same results as in year 2015 and year 2016. We can find that there is a significant positive associstion betweeen happiness score and economic status, a significant positive associstion betweeen happiness score and quality of family life, a significant positive associstion betweeen happiness score and health status, a significant positive associstion betweeen happiness score and freedom status because all p-values based on correlation tests above are less than 0.05 for 0.05 significant level in year 2017.</p>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

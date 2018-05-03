@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Introduction of my project</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">BDS 522 Project</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Introduction</a>
+</li>
+<li>
+  <a href="data.html">Data and Methods</a>
+</li>
+<li>
+  <a href="analysis.html">Analysis</a>
+</li>
+<li>
+  <a href="about.html">Conclusion</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Introduction of my project</h1>
+
+</div>
+
+
+<p>Hello, Welcome to my project website!</p>
+<p>I first found my datasource from Kaggle.com. This data source was originally from the World Happiness Report 2017, which ranks 155 countries by their happiness levels. This report was released at the United Nations on March 20th in the year 2017. The data was originally collected from year 2013 to 2016 globally. In addition, they were selected from nationally representative samples for the years 2013-2016 based on the Gallup World Poll. The poll asked the main life evaluation questions, which is known as the Cantril Ladder. The Cantril Ladder questions asked respondents to value their lives today on a 0 to 10 scale, with the worst possible life as a 0 and the best possible life as a 10. Then their answers were converted to estimates representative by using the Gallup weights. The units of analysis are countries. In total, this report tried to examine the happiness level among different countries and rank the countries based on their happiness level. I want to evaluate if people in this world are happier or unhappier from the year 2015 to year 2017.</p>
+<p>Maslow’s hierarchy of needs is a famous motivational theory to study for human’s satisfaction of life. It is often depicted as hierarchical levels within a pyramid. The first level of the model is physiological needs; the second level is safety needs; the third level is belongingness and love needs; the fourth level is esteem needs; and the fifth level is self-actualization. The psychologists believe that Maslow’s hierarchy model figures out what needs to be accomplished to be happy. Happiness doesn’t just come from material wealth or external recognition. Instead, happiness is related to a sense of fulfillment, staying active, feeling of safety and relationships. Fulfilling each level of Maslow’s pyramid will lead to fulfillment and ultimately happiness. In these days, the global economy and technology are both expanding.Thus, more and more people’s physiological needs such as food, water, warmth and rest are fulfilled due to the improved economy and technology. Our agricultural technology can produce more food and feed more people today than in the past. Thus, it is reasonable to believe that people in these days are happier than in the past. Conclusively, my main hypothesis is that people are happier from year 2015 to year 2017.</p>
+<p>In addition, happiness is also related to many factors such as economic status, family status, health status and freedom status. Thus, my additional hypothesis 2 will be that there is an association between happiness and economy. Hypothesis 3 will be that there is an association between happiness and quality of family life. Hypothesis 4 will be that there is an association between happiness and health status. And hypothesis 5 will be that there is an association between happiness and freedom status.</p>
+<p>References:</p>
+<ol style="list-style-type: decimal">
+<li><p>Helliwell, J., Layard, R., &amp; Sachs, J. (2017). World Happiness Report 2017, New York: Sustainable Development Solutions Network.</p></li>
+<li><p><a href="http://www.thehappiestmanintheworld.com/happiness-cycle-fulfillment-needs/" class="uri">http://www.thehappiestmanintheworld.com/happiness-cycle-fulfillment-needs/</a></p></li>
+<li><p><a href="https://www.simplypsychology.org/maslow.html" class="uri">https://www.simplypsychology.org/maslow.html</a></p></li>
+</ol>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

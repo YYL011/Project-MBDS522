@@ -1,0 +1,46 @@
+---
+title: "Analysis"
+---
+
+```{r}
+setwd("~/Downloads/Website_template")
+year15<-read.csv("2015.csv")
+year16<-read.csv("2016.csv")
+year17<-read.csv("2017.csv")
+
+kruskal.test(list(year15$Happiness.Score,year16$Happiness.Score,year17$Happiness.Score))
+
+```
+
+A Kruskal-Wallis rank sum tests the null hypothesis that the location parameters of the distribution of x are the same in each group. The alternative hypothesis is that they differ in at least one.
+
+For a significance level of 0.05, when P-value ≤ 0.05, we reject the null hypothesis. When P-value > 0.05, we cannot reject the null hypothesis. P-value is equal to 0.9897 here, indicating that we cannot reject the null hypothesis. Thus, the location parameters of the distribution of happiness score are the same in each year (year 2015, year 2016, year 2017). People are not happier from year 2015 to year 2017. Instead, they have the same level of happiness in each year.
+
+
+```{r}
+cor.test(year15$Economy..GDP.per.Capita.,year15$Happiness.Score)
+cor.test(year15$Family,year15$Happiness.Score)
+cor.test(year15$Health..Life.Expectancy.,year15$Happiness.Score)
+cor.test(year15$Freedom,year15$Happiness.Score)
+```
+
+In year 2015, we can find that there is a significant positive associstion betweeen happiness score and economic status, a significant positive associstion betweeen happiness score and quality of family life, a significant positive associstion betweeen happiness score and health status, a significant positive associstion betweeen happiness score and freedom status because all p-values based on correlation tests above are less than 0.05 for 0.05 significant level. 
+
+
+```{r}
+cor.test(year16$Economy..GDP.per.Capita.,year16$Happiness.Score)
+cor.test(year16$Family,year16$Happiness.Score)
+cor.test(year16$Health..Life.Expectancy.,year16$Happiness.Score)
+cor.test(year16$Freedom,year16$Happiness.Score)
+```
+In year 2016, we can find the same results as in year 2015. We can find that there is a significant positive associstion betweeen happiness score and economic status, a significant positive associstion betweeen happiness score and quality of family life, a significant positive associstion betweeen happiness score and health status, a significant positive associstion betweeen happiness score and freedom status because all p-values based on correlation tests above are less than 0.05 for 0.05 significant level in year 2016. 
+
+
+```{r}
+cor.test(year17$Economy..GDP.per.Capita.,year17$Happiness.Score)
+cor.test(year17$Family,year17$Happiness.Score)
+cor.test(year17$Health..Life.Expectancy.,year17$Happiness.Score)
+cor.test(year17$Freedom,year17$Happiness.Score)
+```
+In year 2017, we also can find the same results as in year 2015 and year 2016. We can find that there is a significant positive associstion betweeen happiness score and economic status, a significant positive associstion betweeen happiness score and quality of family life, a significant positive associstion betweeen happiness score and health status, a significant positive associstion betweeen happiness score and freedom status because all p-values based on correlation tests above are less than 0.05 for 0.05 significant level in year 2017. 
+
